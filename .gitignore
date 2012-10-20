@@ -3,4 +3,4 @@
 *.pyc
 local_settings.py
 venv
-
+landingpage/landingpage/settings.py
