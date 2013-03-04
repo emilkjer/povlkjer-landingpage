@@ -1,0 +1,39 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/style.css"/>
+<style> 
+body
+{
+  
+  background: url('{{ MEDIA_URL }}images/cheep.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+</style>
+
+</head>
+<div class='page-wrap'>
+	
+<img src="{{ MEDIA_URL }}images/logo.png" class="logo"/>
+<p>
+Rokkefåret er klassikeren, der bærer de gode minder
+fra generation til generation.
+Fremstillet af Povl Kjer siden 1981.<br>
+For yderligere information, udfyld formularen.
+</p>
+<p>
+Danish design classic, carrying good memories
+from generation to generation.
+Made by Povl Kjer since 1981.<br>
+For further information, please fill in the form.
+</p>
+{% block content %}{% endblock %}
+
+</div>
+
+
+
+</html>

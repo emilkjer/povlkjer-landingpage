@@ -1,0 +1,27 @@
+{% extends "rockingsheep/index.html" %}
+{% block content %}
+
+
+<form action="." method="post" accept-charset="utf-8" class="getemail">
+	{% csrf_token %}
+	
+	{% for field in form %}
+	<div class="noshadow fieldWraper">
+    	{% if field.errors %}
+    	<div id="errorExplanation">
+    	<ul>Angiv venligt deres email addresse korrekt</ul>
+    	</div>
+    	<div id="errorExplanation">
+    	{% endif%}
+    	<label for="id_send_address">Email addresse:</label> {{ field }}
+    	{% if field.errors %}
+    	</div>
+    	{% endif%}
+	</div>
+	{% endfor %}
+	
+	<div class="actions noshadow">
+		<input type="submit" value="Send Email"/>
+	</div>
+</form>
+{% endblock %}
