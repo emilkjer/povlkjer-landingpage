@@ -3,4 +3,6 @@
 *.pyc
 local_settings.py
 venv
+env
 landingpage/landingpage/settings.py
+landingpage/reload
