@@ -50,7 +50,7 @@ def email_and_thanks(request, form):
     # https://docs.djangoproject.com/en/dev/topics/email/
     from django.core.mail import send_mail
     result = send_mail(subject, message, sender, recipients)
-    logger.error('Email send. SUBJECT:%s, MESSAGE:%s, SENDER:%s' %(subject, message, sender))
+    logger.info('Email send. SUBJECT:%s, MESSAGE:%s, SENDER:%s' %(subject, message, sender))
     return render(request, 'rockingsheep/thanks.html')
 
 
