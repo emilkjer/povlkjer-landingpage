@@ -3,6 +3,9 @@
 
 #from django.views.generic.simple import direct_to_template
 from django import forms
+import logging
+
+logger = logging.getLogger(__name__)
 
 class ContactForm(forms.Form):
     send_address = forms.EmailField()
@@ -46,7 +49,8 @@ def email_and_thanks(request, form):
     # Send email
     # https://docs.djangoproject.com/en/dev/topics/email/
     from django.core.mail import send_mail
-#    send_mail(subject, message, sender, recipients)
+    result = send_mail(subject, message, sender, recipients)
+    logger.info('Email send. SUBJECT:%s, MESSAGE:%s, SENDER:%s' %(subject, message, sender))
     return render(request, 'rockingsheep/thanks.html')
 
 
