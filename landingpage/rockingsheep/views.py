@@ -10,7 +10,27 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 
+#    return render_to_response('rockingsheep/index.html')
+#    return direct_to_template(request,'rockingsheep/contact.html')
+
 def index(request):
+    # import ipdb; ipdb.set_trace()
+    return render(request, 'rockingsheep/index.html')
+
+
+
+def page(request, page):
+    base_url = 'rockingsheep/'
+    page_url = base_url+'index'
+    pages = ['historien', 'ombetraekning','produktinfo','navn','scrap','madeindenmark','forhandling','garanti','aegte','skind']
+
+    if page in pages:
+        page_url = base_url+page+'.html'
+
+    return render(request,page_url)
+
+
+def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -20,11 +40,6 @@ def index(request):
     return render(request, 'rockingsheep/contact.html', {
                                             'form' : form
                                             })
-    
-#    return render_to_response('rockingsheep/index.html')
-#    return direct_to_template(request,'rockingsheep/contact.html')
-
-
 
 def email_and_thanks(request, form):
     from django.utils import timezone

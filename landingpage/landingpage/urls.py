@@ -14,7 +14,8 @@ urlpatterns = patterns('',
     
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
+    
     url(r'^$', include('rockingsheep.urls')),
+    url(r'^(?P<page>\w+)/$', 'rockingsheep.views.page', name='page'),
     url(r'^admin/', include(admin.site.urls)),
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
